@@ -1,13 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import LoginForm from '@/components/LoginForm';
+import Layout from '@/components/Layout';
+import CustomerDashboard from '@/components/CustomerDashboard';
+import AgentDashboard from '@/components/AgentDashboard';
+import AdminDashboard from '@/components/AdminDashboard';
 
 const Index = () => {
+  const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
+
+  if (!isAuthenticated) {
+    return <LoginForm />;
+  }
+
+  const getDashboardTitle = () => {
+    switch (user?.role) {
+      case 'customer': return 'Customer Dashboard';
+      case 'agent': return 'Agent Dashboard'; 
+      case 'admin': return 'Administrator Dashboard';
+      default: return 'Dashboard';
+    }
+  };
+
+  const renderDashboard = () => {
+    switch (user?.role) {
+      case 'customer': return <CustomerDashboard />;
+      case 'agent': return <AgentDashboard />;
+      case 'admin': return <AdminDashboard />;
+      default: return <CustomerDashboard />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout title={getDashboardTitle()}>
+      {renderDashboard()}
+    </Layout>
   );
 };
 
