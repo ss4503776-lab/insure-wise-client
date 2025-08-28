@@ -1,22 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export type UserRole = 'customer' | 'agent' | 'admin';
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: UserRole;
-  avatar?: string;
-}
-
-interface AuthState {
-  user: User | null;
-  isAuthenticated: boolean;
-  loading: boolean;
-}
-
-const initialState: AuthState = {
+const initialState = {
   user: null,
   isAuthenticated: false,
   loading: false,
@@ -29,7 +13,7 @@ const authSlice = createSlice({
     loginStart: (state) => {
       state.loading = true;
     },
-    loginSuccess: (state, action: PayloadAction<User>) => {
+    loginSuccess: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
       state.loading = false;

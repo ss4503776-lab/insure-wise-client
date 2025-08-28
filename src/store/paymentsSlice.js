@@ -1,22 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface Payment {
-  id: string;
-  policyId: string;
-  amount: number;
-  status: 'completed' | 'pending' | 'failed';
-  method: 'credit_card' | 'bank_transfer' | 'check';
-  date: string;
-  customerId: string;
-  description: string;
-}
-
-interface PaymentsState {
-  payments: Payment[];
-  loading: boolean;
-}
-
-const initialState: PaymentsState = {
+const initialState = {
   payments: [
     {
       id: '1',
@@ -56,19 +40,19 @@ const paymentsSlice = createSlice({
   name: 'payments',
   initialState,
   reducers: {
-    setPayments: (state, action: PayloadAction<Payment[]>) => {
+    setPayments: (state, action) => {
       state.payments = action.payload;
     },
-    addPayment: (state, action: PayloadAction<Payment>) => {
+    addPayment: (state, action) => {
       state.payments.push(action.payload);
     },
-    updatePayment: (state, action: PayloadAction<Payment>) => {
+    updatePayment: (state, action) => {
       const index = state.payments.findIndex(p => p.id === action.payload.id);
       if (index !== -1) {
         state.payments[index] = action.payload;
       }
     },
-    setLoading: (state, action: PayloadAction<boolean>) => {
+    setLoading: (state, action) => {
       state.loading = action.payload;
     },
   },

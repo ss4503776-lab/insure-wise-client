@@ -1,26 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface Policy {
-  id: string;
-  policyNumber: string;
-  type: 'auto' | 'home' | 'life' | 'health';
-  status: 'active' | 'inactive' | 'pending';
-  premium: number;
-  coverage: number;
-  startDate: string;
-  endDate: string;
-  customerId: string;
-  agentId: string;
-  documents: string[];
-}
-
-interface PoliciesState {
-  policies: Policy[];
-  loading: boolean;
-  searchTerm: string;
-}
-
-const initialState: PoliciesState = {
+const initialState = {
   policies: [
     {
       id: '1',
@@ -70,22 +50,22 @@ const policiesSlice = createSlice({
   name: 'policies',
   initialState,
   reducers: {
-    setPolicies: (state, action: PayloadAction<Policy[]>) => {
+    setPolicies: (state, action) => {
       state.policies = action.payload;
     },
-    addPolicy: (state, action: PayloadAction<Policy>) => {
+    addPolicy: (state, action) => {
       state.policies.push(action.payload);
     },
-    updatePolicy: (state, action: PayloadAction<Policy>) => {
+    updatePolicy: (state, action) => {
       const index = state.policies.findIndex(p => p.id === action.payload.id);
       if (index !== -1) {
         state.policies[index] = action.payload;
       }
     },
-    setSearchTerm: (state, action: PayloadAction<string>) => {
+    setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },
-    setLoading: (state, action: PayloadAction<boolean>) => {
+    setLoading: (state, action) => {
       state.loading = action.payload;
     },
   },

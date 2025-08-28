@@ -1,24 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export interface Claim {
-  id: string;
-  claimNumber: string;
-  policyId: string;
-  status: 'pending' | 'approved' | 'denied' | 'processing';
-  amount: number;
-  description: string;
-  dateSubmitted: string;
-  customerId: string;
-  documents: string[];
-}
-
-interface ClaimsState {
-  claims: Claim[];
-  loading: boolean;
-  searchTerm: string;
-}
-
-const initialState: ClaimsState = {
+const initialState = {
   claims: [
     {
       id: '1',
@@ -62,22 +44,22 @@ const claimsSlice = createSlice({
   name: 'claims',
   initialState,
   reducers: {
-    setClaims: (state, action: PayloadAction<Claim[]>) => {
+    setClaims: (state, action) => {
       state.claims = action.payload;
     },
-    addClaim: (state, action: PayloadAction<Claim>) => {
+    addClaim: (state, action) => {
       state.claims.push(action.payload);
     },
-    updateClaim: (state, action: PayloadAction<Claim>) => {
+    updateClaim: (state, action) => {
       const index = state.claims.findIndex(c => c.id === action.payload.id);
       if (index !== -1) {
         state.claims[index] = action.payload;
       }
     },
-    setSearchTerm: (state, action: PayloadAction<string>) => {
+    setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },
-    setLoading: (state, action: PayloadAction<boolean>) => {
+    setLoading: (state, action) => {
       state.loading = action.payload;
     },
   },

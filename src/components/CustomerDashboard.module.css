@@ -1,0 +1,452 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.welcomeTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.welcomeSubtitle {
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.statCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.statContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIconPrimary {
+  background-color: rgba(30, 64, 175, 0.1);
+}
+
+.statIconWarning {
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+.statIconSuccess {
+  background-color: rgba(5, 150, 105, 0.1);
+}
+
+.statIconAccent {
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tabsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background-color: var(--muted);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.tabsTrigger {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabsTrigger:hover {
+  color: var(--foreground);
+}
+
+.tabsTriggerActive {
+  background-color: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .sectionHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.sectionInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.sectionDescription {
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttonPrimary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--primary-foreground);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+}
+
+.buttonPrimary:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.35);
+}
+
+.buttonOutline {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.buttonOutline:hover {
+  background-color: var(--secondary);
+}
+
+.buttonSmall {
+  height: 32px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.policiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 16px;
+}
+
+.policyCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.policyCard:hover {
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
+}
+
+.policyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.policyTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.policyIcon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(30, 64, 175, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.policyTitleInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.policyTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.policyNumber {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.policyDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.policyDetailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.policyDetailLabel {
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.policyDetailValue {
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.policyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.claimsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.claimCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.1);
+}
+
+.claimContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .claimContent {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.claimInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.claimHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.claimIcon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(217, 119, 6, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.claimTitleInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.claimTitle {
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.claimDescription {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.claimDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  font-size: 14px;
+}
+
+.claimActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.paymentsCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(30, 64, 175, 0.1);
+}
+
+.paymentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paymentItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.paymentLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.paymentIcon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(5, 150, 105, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paymentInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentTitle {
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.paymentMeta {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.paymentRight {
+  text-align: right;
+}
+
+.paymentAmount {
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

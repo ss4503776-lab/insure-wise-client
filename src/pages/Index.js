@@ -1,13 +1,12 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store';
-import LoginForm from '@/components/LoginForm';
-import Layout from '@/components/Layout';
-import CustomerDashboard from '@/components/CustomerDashboard';
-import AgentDashboard from '@/components/AgentDashboard';
-import AdminDashboard from '@/components/AdminDashboard';
+import LoginForm from '../components/LoginForm.js';
+import Layout from '../components/Layout.js';
+import CustomerDashboard from '../components/CustomerDashboard.js';
+import AgentDashboard from '../components/AgentDashboard.js';
+import AdminDashboard from '../components/AdminDashboard.js';
 
 const Index = () => {
-  const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
 
   if (!isAuthenticated) {
     return <LoginForm />;
